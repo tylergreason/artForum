@@ -3,7 +3,7 @@ Art Forum (working title) is a site for users to discuss images of daily-posted 
 This is my second module project for Flatiron's Immersive Software Engineering program, meant to exemplify our ability to create a Rails application. The proposal for my project can be found below. This is a living document and some things may change between now and when it is submitted (Friday, February 14th, 2020). 
 
 ## USER STORIES 
-SEPARATE THESE INTO INDIVIDUAL STORIES 
+
 - As a user, I want to view photos of art pieces. (Read)
 - As a user, I want to comment on art pieces. (Create)
 - As a user, I want to edit my comments. (Edit)
