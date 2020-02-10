@@ -98,13 +98,13 @@ User >- Favorite_Image -< Image
 
   - Artist 
 
-  - Region (if available)
+  - ~~Region (if available)~~ Removed for now, might add again later. 
 
   - Date created (by the artist) 
 
   - Blurb about the pieces (if available)
 
-  - date (the date the piece appeared on the site)
+  - ~~date (the date the piece appeared on the site)~~ Removed because the timestamp that activerecord makes already serve this purpose. 
 
 - Comment 
 
