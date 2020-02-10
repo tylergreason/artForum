@@ -3,11 +3,12 @@
 <ul>
     <% @images.each do |image| %>
         <li>
-            <p>Image URL: <%= link_to image.url, image_path(image) %></p>
+            <p><%= link_to (image_tag image.url, size: "64x64"), image_path(image) %></p>
             <p>Title: <%= link_to image.title, image_path(image) %></p>
             <p>Artist: <%= image.artist %></p>
             <p>Metro link: <%= image.metro_link %></p>
             <p>Date created: <%= image.date_created %></p>
+            <p>Date posted: <%= image.image_date %></p>
         </li>
     <% end %>
 </ul>
