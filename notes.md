@@ -245,3 +245,14 @@ action that pulls an image on DateTime,
 Focus on min requirements for today - core functionality 
 
 Hoping to see authorization done by Wednesday morning, MAYBE favorite images. 
+
+## Monday, Feb 10 afternoon lecture notes - Sessions and cookies, authorization review 
+
+<!-- State versus session: State is the state the app is in, while session  -->
+
+Maybe checkout using expiration time for creating instances of Image 
+
+Authentication - confirming the user is who they say they are 
+
+Authorization - What the user can do once they've been authenticated 
+

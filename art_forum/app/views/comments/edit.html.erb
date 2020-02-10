@@ -1,5 +1,16 @@
 <h1>edit comments page </h1>
 
+<% if @comment.errors.any? %>
+<ul>
+    <p>Errors: </p>
+    <% @comment.errors.full_messages.each do |msg| %>
+    <li>
+        <%= msg %>
+    </li>
+    <% end %>
+</ul>
+<% end %>
+
 <%= form_for @comment do |f| %>
     <%= f.label "Edit text" %>
     <%= f.text_area :text %>

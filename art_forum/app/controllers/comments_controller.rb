@@ -8,7 +8,8 @@ class CommentsController < ApplicationController
             redirect_to image_path(params["comment"]["image_id"])
         else 
             # byebug    
-            redirect_to image_path(params["comment"]["image_id"].to_i)
+            flash[:notice] = @comment.error_message
+            redirect_to image_path(params["comment"]["image_id"])
         end
     end
 
@@ -28,6 +29,7 @@ class CommentsController < ApplicationController
         if @comment.valid?
             redirect_to image_path(@comment.image_id)
         else
+            flash[:notice] = @comment.error_message
             render :edit
         end
     end

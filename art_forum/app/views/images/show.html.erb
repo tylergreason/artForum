@@ -5,8 +5,17 @@
 <p>Date created: <%= @image.date_created %></p>
 <p><%= link_to 'Find more information at the museum page', @image.metro_link %></p>
 <%= image_tag @image.url %>
+
+<% #add custom error messages for if the comment doesn't work %>
+
+
 <% # add a new comment for any user (until authorization is added) %>
 <%=  form_for @comment do |f|%>
+    <% #give error if one exists %>
+    <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+
     <%= f.label "Comment"  %>
     <%= f.text_area :text%>
     <br>
