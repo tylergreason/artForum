@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all 
-Image.destroy_all 
+Image.destroy_all
+Comment.destroy_all
 
 require 'faker'
 
@@ -16,5 +17,12 @@ require 'faker'
 end
 
 10.times do
-    Image.create(url: "www.google.com", metro_link: "https://www.metmuseum.org/", artist: Faker::Name.name, date_created: Faker::Date.backward(days: 100000000),title: Faker::Name.name)
+    Image.create(url: "www.google.com", metro_link: "https://www.metmuseum.org/", artist: Faker::Name.name, date_created: Faker::Date.backward(days: 100000000),title: Faker::Superhero.name)
+end
+
+# give each user multiple comments 
+User.all.each do |user| 
+    5.times do 
+        Comment.create(user: user, image: Image.all.sample, text: Faker::String.random(length: 40))
+    end
 end

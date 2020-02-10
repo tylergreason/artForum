@@ -202,7 +202,7 @@ User >- Favorite_Image -< Image
 
 - Image 
 
-  - next or previous_image methods: finds the image with a non-zero ID value that is one less or one more than the current view's ID, then displays that image's page. 
+    - next or previous_image methods: finds the image with a non-zero ID value that is one less or one more than the current view's ID, then displays that image's page. 
 
 
 ```
@@ -216,12 +216,32 @@ def next_image
 end
 ```
 
-  - Checking to see if an image has been generated for today: Check the last image in the images table (Image.all.last) and see if its date is before today. If it is, generate a new image object for that day. 
+    - Checking to see if an image has been generated for today: Check the last image in the images table (Image.all.last) and see if its date is before today. If it is, generate a new image object for that day. 
 
-  - If we haven't reached the end of avilable images, make sure the new image ID isn't equal to any image that has already been used. 
+    - If we haven't reached the end of avilable images, make sure the new image ID isn't equal to any image that has already been used. 
 
     - Both of these issue could probably be resolved by pregenerating all the day's images, and making sure not to show any posts that were before the day they're being viewed. 
+
+  - comment: 
+
+    - user_id 
+
+    - image_id
+
+    - text
 
 ## Monday, Feb 10 morning lecture notes - many to many review 
 
 rails g model Comment text:string image:references user: references
+
+10 images seeded, rotate, pick random image for that day and set a date time for it 
+
+action that pulls an image on DateTime, 
+
+2nd action that shows 
+
+!! Method in index that checks to see if there is an image for today's date and generates an image if not. 
+
+Focus on min requirements for today - core functionality 
+
+Hoping to see authorization done by Wednesday morning, MAYBE favorite images. 

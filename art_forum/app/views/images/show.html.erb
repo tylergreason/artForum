@@ -1,8 +1,17 @@
 <p><%= link_to 'Go back to all images', images_path %></p>
-<h1><%= @image.title %></h1>
-<h3>Artist: <%= @image.artist %></h3>
-<p><%= link_to 'Metro link', @image.metro_link %></p>
-<p>Date created: <%= @image.date_created %></p>
 
-<p>URL: <%= @image.URL %></p>
+<h1>Title: <%= @image.title %></h1>
+<h3>Artist: <%= @image.artist %></h3>
+<p><%= link_to 'Find more information at the museum page', @image.metro_link %></p>
+<p>Date created: <%= @image.date_created %></p>
+<p>URL: <%= @image.url %></p>
+
+<h4>Comments: </h4>
+
+<% @image.comments.each do  |comment| %>
+    <p>User <%= comment.user.full_name %> said: </p>
+    <li><%= comment.text %></li>
+    <br>
+<% end %>
+
 
