@@ -76,81 +76,81 @@ User >- Favorite_Image -< Image
 
 ### ATTRIBUTES 
 
-- User 
+    - User 
 
-  - First name 
+    - First name 
 
-  - Last name 
+    - Last name 
 
-  - Email 
+    - Email 
 
-  - Location (string) 
+    - Location (string) 
 
-  - Biography (limit to 250 char)
+    - Biography (limit to 250 char)
 
-- Image 
+    - Image 
 
-  - ~~Source~~
+    - ~~Source~~
 
-  - URL
+    - URL
 
-  - Link to Metropolitan page for that piece 
+    - Link to Metropolitan page for that piece 
 
-  - Artist 
+    - Artist 
 
-  - ~~Region (if available)~~ Removed for now, might add again later. 
+    - ~~Region (if available)~~ Removed for now, might add again later. 
 
-  - Date created (by the artist) 
+    - Date created (by the artist) 
 
-  - Blurb about the pieces (if available)
+    - Blurb about the pieces (if available)
 
-  - ~~date (the date the piece appeared on the site)~~ Removed because the timestamp that activerecord makes already serve this purpose. 
+    - ~~date (the date the piece appeared on the site)~~ Removed because the timestamp that activerecord makes already serve this purpose. 
 
-- Comment 
+    - Comment 
 
-  - user_id 
+    - user_id 
 
-  - image_id 
+    - image_id 
 
-  - Comment text
+    - Comment text
 
-- Favorite Image 
+    - Favorite Image 
 
-  - user_id
+    - user_id
 
-  - image_id 
-<!-- 
-- Follower 
+    - image_id 
+    <!-- 
+    - Follower 
 
-  - user_id (of the following User)
+    - user_id (of the following User)
 
-  - user_id (of the followed User)  -->
+    - user_id (of the followed User)  -->
 
 ## STRETCH GOALS 
 
-- Stying before stretch goals! The presentation of the app is key! 
+    - Stying before stretch goals! The presentation of the app is key! 
 
-- As a user, I want to create more than one collection (more than just Favorite collection), and write about that collection. (Create, read, update, destroy) 
+    - As a user, I want to create more than one collection (more than just Favorite collection), and write about that collection. (Create, read, update, destroy) 
 
-- Incorporate more sources and view images sorted by their source (different museums, Behance, Dribble, etcetera).  
+    - Incorporate more sources and view images sorted by their source (different museums, Behance, Dribble, etcetera).  
 
-- As a user, I want to select other users to add to my Following list and have the ability to remove those users. (Edit, destroy). 
+    - As a user, I want to select other users to add to my Following list and have the ability to remove those users. (Edit, destroy). 
 
 ## WEEKEND PLANS 
 
-- Get caught up on some labs. 
+    - Get caught up on some labs. 
 
-- Work on finding the right API and learning how to use it. 
+    - Work on finding the right API and learning how to use it. 
 
 # TODO 
 
-[ ] Finish views. 
+    [ ] Finish views. 
 
-[ ] Add yield description, for navigation bar. 
+    [ ] Add yield description, for navigation bar. 
 
-[ ]  Figure our when the day's image would be generated. 
+    [ ]  Figure our when the day's image would be generated. 
 
-    - Maybe it check to see if there is an image in the database for today's day at the beginning of the day, and if not, it generates that image? 
+        - Maybe it check to see if there is an image in the database for today's day at the beginning of the day, and if not, it generates that image? 
 
 ## Views: 
 

@@ -17,7 +17,7 @@ require 'faker'
 end
 
 10.times do
-    Image.create(url: "www.google.com", metro_link: "https://www.metmuseum.org/", artist: Faker::Name.name, date_created: Faker::Date.backward(days: 10000),title: Faker::Superhero.name)
+    Image.create(url: "https://lh3.googleusercontent.com/proxy/v_X7LeUVFzRQBnAYqvOSPsuQJGBuxA2zsDe02kMTDfbfaEjmI9Ge_7xC5SHba8qPfKhLv2GbpHeQKm1obQmNdG5_Yzen3g5Ovc6O1_KB8AycErk-iOHIi02_DhP_kQ", metro_link: "https://www.metmuseum.org/", artist: Faker::Name.name, date_created: Faker::Date.backward(days: 10000),title: Faker::Superhero.name)
 end
 
 # give each user multiple comments 

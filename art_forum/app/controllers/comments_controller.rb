@@ -7,7 +7,8 @@ class CommentsController < ApplicationController
             @comment.save 
             redirect_to image_path(params["comment"]["image_id"])
         else 
-            render image_path(params["comment"]["image_id"])
+            # byebug    
+            redirect_to image_path(params["comment"]["image_id"].to_i)
         end
     end
 

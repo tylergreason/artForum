@@ -5,3 +5,13 @@
 <p>Location: <%= @user.location %></p>
 <p>Biography: </p>
 <p><%=  @user.biography%></p>
+
+<h3>My comments: </h3>
+
+<% @user.comments.each do |comment| %>
+    <p><%= link_to (image_tag comment.image.url, size: "64x64"), image_path(comment.image) %></p>
+    <li>Piece title: <%= link_to comment.image.title, image_path(comment.image) %></li>
+    <li>Comment date: <%= comment.comment_date  %></li>
+    <li><%= comment.text %></li>
+    <br>
+<% end %>

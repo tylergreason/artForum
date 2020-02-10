@@ -2,13 +2,13 @@
 
 <h1>Title: <%= @image.title %></h1>
 <h3>Artist: <%= @image.artist %></h3>
-<p><%= link_to 'Find more information at the museum page', @image.metro_link %></p>
 <p>Date created: <%= @image.date_created %></p>
-<p>URL: <%= @image.url %></p>
-
+<p><%= link_to 'Find more information at the museum page', @image.metro_link %></p>
+<%= image_tag @image.url %>
+<% # add a new comment for any user (until authorization is added) %>
 <%=  form_for @comment do |f|%>
     <%= f.label "Comment"  %>
-    <%= f.text_field :text%>
+    <%= f.text_area :text%>
     <br>
     User: 
     <%= f.collection_select :user_id, User.all, :id, :full_name%>
@@ -19,8 +19,9 @@
 <% end %>
 <h4>Comments: </h4>     
 
+<% # all comments for this piece %>
 <% @image.comments.each do  |comment| %>
-    <p>User <%= comment.user.full_name %> said: </p>
+    <p>User <%= link_to comment.user.full_name, user_path(comment.user) %> said: </p>
     <li><%= comment.text %></li>
     <br>
     <p>at <%= comment.comment_date %></p>
