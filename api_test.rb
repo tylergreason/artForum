@@ -18,10 +18,12 @@ artist_name = image_data["artistDisplayName"]
 # pp image_data
 
 
-# use wikipedia API to search for the article in question 
-url = "http://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=#{artist_name}&format=json&prop=info&inprop=url"
-wikipedia_page = JSON.parse(RestClient.get(url))
-wikipedia_page_id = wikipedia_page["query"]["search"][0]["pageid"].to_s
-# pp wikipedia_page_id
-p "https://en.wikipedia.org/wiki/?curid=#{wikipedia_page_id}"
+# wikipedia stuff:
+
+# # use wikipedia API to search for the article in question 
+# url = "http://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=#{artist_name}&format=json&prop=info&inprop=url"
+# wikipedia_page = JSON.parse(RestClient.get(url))
+# wikipedia_page_id = wikipedia_page["query"]["search"][0]["pageid"].to_s
+# # pp wikipedia_page_id
+# p "https://en.wikipedia.org/wiki/?curid=#{wikipedia_page_id}"
 
