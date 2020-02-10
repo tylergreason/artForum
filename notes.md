@@ -221,3 +221,7 @@ end
   - If we haven't reached the end of avilable images, make sure the new image ID isn't equal to any image that has already been used. 
 
     - Both of these issue could probably be resolved by pregenerating all the day's images, and making sure not to show any posts that were before the day they're being viewed. 
+
+## Monday, Feb 10 morning lecture notes - many to many review 
+
+rails g model Comment text:string image:references user: references

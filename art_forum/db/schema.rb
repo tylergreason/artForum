@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_135138) do
+ActiveRecord::Schema.define(version: 2020_02_10_143338) do
 
   create_table "images", force: :cascade do |t|
-    t.string "URL"
+    t.string "url"
     t.string "metro_link"
     t.string "artist"
     t.string "date_created"

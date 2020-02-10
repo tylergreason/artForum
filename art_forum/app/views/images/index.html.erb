@@ -4,7 +4,7 @@
     <% @images.each do |image| %>
         <li>
             <p>URL: <%= image.URL %></p>
-            <p>Title: <%= link_to image.title, image_path(@image) %></p>
+            <p>Title: <%= link_to image.title, image_path(image) %></p>
             <p>Artist: <%= image.artist %></p>
             <p>Metro link: <%= image.metro_link %></p>
             <p>Date created: <%= image.date_created %></p>
