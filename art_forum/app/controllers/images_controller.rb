@@ -5,5 +5,15 @@ class ImagesController < ApplicationController
 
     def show
         @image = Image.find(params[:id])
+        @comment = Comment.new
+    end
+
+    def update 
+    end
+
+
+    private 
+    def image_params
+        params.require(:image).permit(:url, :metro_link, :artist, :date_created, :title, :user_ids, :comments)
     end
 end

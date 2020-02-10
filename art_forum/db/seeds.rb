@@ -13,16 +13,16 @@ Comment.destroy_all
 require 'faker'
 
 10.times do 
-    User.create(first_name: Faker::Name.name, last_name: Faker::Name.name, email: Faker::Internet.email, location: Faker::Address.city, biography: Faker::String.random(length: 40))
+    User.create(first_name: Faker::Name.name, last_name: Faker::Name.name, email: Faker::Internet.email, location: Faker::Address.city, biography: Faker::Lorem.sentence(word_count: 30))
 end
 
 10.times do
-    Image.create(url: "www.google.com", metro_link: "https://www.metmuseum.org/", artist: Faker::Name.name, date_created: Faker::Date.backward(days: 100000000),title: Faker::Superhero.name)
+    Image.create(url: "www.google.com", metro_link: "https://www.metmuseum.org/", artist: Faker::Name.name, date_created: Faker::Date.backward(days: 10000),title: Faker::Superhero.name)
 end
 
 # give each user multiple comments 
 User.all.each do |user| 
     5.times do 
-        Comment.create(user: user, image: Image.all.sample, text: Faker::String.random(length: 40))
+        Comment.create(user: user, image: Image.all.sample, text: Faker::Lorem.sentence(word_count: 30))
     end
 end

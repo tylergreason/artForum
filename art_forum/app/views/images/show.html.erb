@@ -6,12 +6,27 @@
 <p>Date created: <%= @image.date_created %></p>
 <p>URL: <%= @image.url %></p>
 
-<h4>Comments: </h4>
+<%=  form_for @comment do |f|%>
+    <%= f.label "Comment"  %>
+    <%= f.text_field :text%>
+    <br>
+    User: 
+    <%= f.collection_select :user_id, User.all, :id, :full_name%>
+    <br>
+    <% #hidden field to provide the image_id to the comments controller  %>
+    <%= f.hidden_field :image_id, :value => @image.id %>
+    <%= f.submit "Add Comment" %>
+<% end %>
+<h4>Comments: </h4>     
 
 <% @image.comments.each do  |comment| %>
     <p>User <%= comment.user.full_name %> said: </p>
     <li><%= comment.text %></li>
     <br>
+    <p>at <%= comment.comment_date %></p>
+    <%= button_to "Delete Comment", comment_path(comment.id), :method => :delete %>
+    <%= button_to "Edit Comment", edit_comment_path(comment.id), :method => :get %>
+    <% #byebug %>
 <% end %>
 
 
