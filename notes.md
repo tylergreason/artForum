@@ -104,7 +104,7 @@ User >- Favorite_Image -< Image
 
   - Blurb about the pieces (if available)
 
-  - Date used (the date the piece appeared on the site)
+  - date (the date the piece appeared on the site)
 
 - Comment 
 
@@ -148,7 +148,9 @@ User >- Favorite_Image -< Image
 
 [ ] Add yield description, for navigation bar. 
 
-[ ]  
+[ ]  Figure our when the day's image would be generated. 
+
+    - Maybe it check to see if there is an image in the database for today's day at the beginning of the day, and if not, it generates that image? 
 
 ## Views: 
 
@@ -166,7 +168,7 @@ User >- Favorite_Image -< Image
 
   - Index: Shows all images by the date they were posted. Should have images sorted into rows of 1 or 5-10 images depending on device width. Images are shown above their title, artist, the date they were posted. Crop/downsize the image using CSS. 
 
-  - Show: Similar to above, but one, full-size image. Artist name is below the image, then date, then a link to The Met page for that piece. Below the image and its information are a list of user's comments ordered by their post date. Links to user's pages are available through each user's name. A text_field is placed below (maybe above?) the list of comments if a user is logged in, and allows them to post a comment. The page renders image_path(@image) after a comment is submitted to show it has persisted. 
+  - Show: Similar to above, but one, full-size image. Artist name is below the image, then date, then a link to The Met page for that piece. Below the image and its information are a list of user's comments ordered by their post date. Links to user's pages are available through each user's name. A text_field is placed below (maybe above?) the list of comments if a user is logged in, and allows them to post a comment. The page renders image_path(@image) after a comment is submitted to show it has persisted. Has small buttons on either side of the image to go to the next/previous day's image. 
 
   - ~~Edit:~~
 
@@ -200,5 +202,22 @@ User >- Favorite_Image -< Image
 
 - Image 
 
-  - 
+  - next or previous_image methods: finds the image with a non-zero ID value that is one less or one more than the current view's ID, then displays that image's page. 
 
+
+```
+def next_image 
+    # by the next day: 
+    next_day = this.date
+
+    next_id = self.id+1 
+    # ?? 
+    render :show[next_id]
+end
+```
+
+  - Checking to see if an image has been generated for today: Check the last image in the images table (Image.all.last) and see if its date is before today. If it is, generate a new image object for that day. 
+
+  - If we haven't reached the end of avilable images, make sure the new image ID isn't equal to any image that has already been used. 
+
+    - Both of these issue could probably be resolved by pregenerating all the day's images, and making sure not to show any posts that were before the day they're being viewed. 
