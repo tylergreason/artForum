@@ -1,6 +1,5 @@
 class ImagesController < ApplicationController
     def index
-        # @images = Image.all
         @images = Image.sort_by_creation_date
     end
 

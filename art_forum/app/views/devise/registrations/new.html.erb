@@ -21,6 +21,7 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <!--Custom fields -->
   <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name%>
@@ -38,7 +39,7 @@
   
   <div class="field">
     <%= f.label :biography %><br />
-    <%= f.text_field :biography%>
+    <%= f.text_area :biography%>
   </div>
 
   <div class="actions">

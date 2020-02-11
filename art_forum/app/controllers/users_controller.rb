@@ -6,9 +6,14 @@ class UsersController < ApplicationController
 
     def show 
         # byebug
-        @user = User.find(params[:id])
+        if User.find_by(params[:id]) == nil 
+            redirect_to :index
+        else
+            @user = User.find(params[:id])
+        end
     end
 
-    private 
+    # private 
+    # no longer using parameters here; see app/controllers/users/sessions_controller for new param
     # params.require(:user).permit(:first_name, :last_name, :email, :location, :biography)
 end
