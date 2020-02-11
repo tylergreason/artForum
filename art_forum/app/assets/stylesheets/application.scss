@@ -1,0 +1,94 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+// @import "bulma";
+// @import "bulma/sass/utilities/_all.sass";
+// @import "bulma/sass/grid/columns.sass";
+
+* {
+    // set all fonts to be the same 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+.navbar-nav{
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black; 
+    // rounded corners 
+    border-radius: 10px;
+    // center text 
+    text-align: center;
+    background: #bbcfff80;
+    width: 50%;
+    margin: auto;
+    margin-top: 0px;
+}
+
+.image_show {
+    // background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(196,246,255,1) 4%, rgba(255,255,255,1) 100%);
+    // background-image: url('wild-sea.png');
+    // background-repeat: repeat;   
+    // background: rgba(255, 255, 255, 0.315); 
+    
+    background-color: #f0efef80;
+}
+
+// center the displayed image 
+.show_image img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.image_info {
+    text-align: center;
+    --left-right-margin: 200px;
+    width: 30%;
+    margin: auto; 
+    // margin-left: var(--left-right-margin); 
+    // margin-right: var(--left-right-margin);
+    margin-bottom: 50px;
+    border-left: 2px solid black; 
+    border-right: 2px solid black; 
+    border-radius: 10px;
+}
+
+.metro_link{
+    font-size: .8rem;
+}
+
+.comment {
+    border: 2px solid black; 
+    border-radius: 10px; 
+    margin: 10px;
+    padding: 10px;
+    background-color: #faafff80;
+}
+
+.comment_text {
+    padding-left: 10px;
+}
+
+.comment_section {
+    background: #f0efef;
+}
+
+// remove the top margin from HTML so the navbar touches the top of the screen 
+body {
+    margin-top: 0px;
+}

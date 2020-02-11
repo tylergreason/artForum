@@ -1,20 +1,26 @@
-<p><%= link_to 'Go back to all images', images_path %></p>
+<body class="image_show">
+<p><%= link_to 'all images', images_path %></p>
+<div class="show_image">
+    <%= image_tag @image.url%>
+</div>
 
-<h1>Title: <%= @image.title %></h1>
-<h3>Artist: <%= @image.artist %></h3>
-<p>Date created: <%= @image.date_created %></p>
-<p><%= link_to 'Find more information at the museum page', @image.metro_link %></p>
-<%= image_tag @image.url %>
+<div class="image_info">
+    <h2><%= @image.title %></h2>
+    <p>by <%= @image.artist %></p>
+    <p>created <%= @image.date_created %></p>
+    <p class="metro_link"><%= link_to "Find more information at The Met's page for this piece", @image.metro_link %></p>
+</div>
 
 <% #add custom error messages for if the comment doesn't work %>
 
-
+<div class="comment_section">
 <% # add a new comment for any user (until authorization is added) %>
 <%=  form_for @comment do |f|%>
 
     <% if user_signed_in? %>
-        <%= f.label "Comment"  %>
-        <%= f.text_area :text%>
+        <%= f.label " say something"  %>
+        <br>
+        <%= f.text_area :text, size: "70x5"%>
         <%#= f.collection_select :user_id, User.all, :id, :full_name%>
         <br>
         <% #hidden field to provide the image_id to the comments controller  %>
@@ -31,8 +37,9 @@
 
 <% # all comments for this piece %>
 <% @image.comments.each do  |comment| %>
+    <div class="comment">
     <p>User <%= link_to comment.user.full_name, user_path(comment.user) %> said: </p>
-    <li><%= comment.text %></li>
+    <li class="comment_text"><%= comment.text %></li>
     <br>
     <p>at <%= comment.comment_date %></p>
     <% #byebug %>
@@ -41,6 +48,10 @@
         <%= button_to "Edit Comment", edit_comment_path(comment.id), :method => :get %>
     <% end %>
     <% #byebug %>
+    </div>
 <% end %>
+</div>
 
 
+
+</body>
