@@ -11,6 +11,8 @@
 
   <body>
 
+  <ul class="navbar-nav mr-auto">
+    
     <p class="navbar-text float-right">
     <% if user_signed_in? %>
       Logged in as <strong><%= current_user.email %></strong>.
@@ -21,6 +23,7 @@
       <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
     <% end %>
     </p>
+  </ul>
     <!-- for Devise per Rails Girl tutorial -->
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
