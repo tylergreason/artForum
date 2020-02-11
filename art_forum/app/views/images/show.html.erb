@@ -16,15 +16,19 @@
         <div class="notice"><%= flash[:notice] %></div>
     <% end %>
 
+    <% if user_signed_in? %>
     <%= f.label "Comment"  %>
     <%= f.text_area :text%>
-    <br>
-    User: 
-    <%= f.collection_select :user_id, User.all, :id, :full_name%>
+    <%#= f.collection_select :user_id, User.all, :id, :full_name%>
     <br>
     <% #hidden field to provide the image_id to the comments controller  %>
     <%= f.hidden_field :image_id, :value => @image.id %>
     <%= f.submit "Add Comment" %>
+    
+    <% else %>
+        <p>You must be signed in to leave comments</p>
+    <% end %>
+
 <% end %>
 <h4>Comments: </h4>     
 
@@ -34,8 +38,11 @@
     <li><%= comment.text %></li>
     <br>
     <p>at <%= comment.comment_date %></p>
-    <%= button_to "Delete Comment", comment_path(comment.id), :method => :delete %>
-    <%= button_to "Edit Comment", edit_comment_path(comment.id), :method => :get %>
+    <% #byebug %>
+    <% if  user_signed_in? && current_user.id == comment.user.id %>
+        <%= button_to "Delete Comment", comment_path(comment.id), :method => :delete %>
+        <%= button_to "Edit Comment", edit_comment_path(comment.id), :method => :get %>
+    <% end %>
     <% #byebug %>
 <% end %>
 

@@ -10,5 +10,5 @@ class UsersController < ApplicationController
     end
 
     private 
-    params.require(:user).permit(:first_name, :last_name, :email, :location, :biography)
+    # params.require(:user).permit(:first_name, :last_name, :email, :location, :biography)
 end

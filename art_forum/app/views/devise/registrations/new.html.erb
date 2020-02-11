@@ -31,11 +31,19 @@
     <%= f.text_field :last_name%>
   </div>
 
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location%>
+  </div>
+  
+  <div class="field">
+    <%= f.label :biography %><br />
+    <%= f.text_field :biography%>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
-
-  <p>messing with this to see if it shows up on the new user page </p>
 <% end %>
 
 <%= render "devise/shared/links" %>
