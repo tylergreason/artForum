@@ -18,7 +18,7 @@ artist_name = image_data["artistDisplayName"]
 # pp image_data
 
 
-# wikipedia stuff:
+# wikipedia stuff: 
 
 # # use wikipedia API to search for the article in question 
 # url = "http://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=#{artist_name}&format=json&prop=info&inprop=url"

@@ -1,12 +1,11 @@
 class User < ApplicationRecord
-    has_many :comments 
-    has_many :images, through: :comments 
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 
-    validates :first_name, :last_name, :email, :location, :biography, presence: true 
-    validates :biography, length: {maximum: 250}
-    validates :email, uniqueness: true 
+      def full_name 
+          self.first_name + " " + self.last_name 
+      end
 
-    def full_name 
-        self.first_name + " " + self.last_name 
-    end
 end
