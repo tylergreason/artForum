@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
     def index 
+        # before_action :authenticate_user! 
         @users = User.all
     end
 
     def show 
+        # byebug
         @user = User.find(params[:id])
     end
 
