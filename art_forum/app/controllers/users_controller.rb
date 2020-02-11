@@ -1,16 +1,10 @@
 class UsersController < ApplicationController
     def index 
-        # before_action :authenticate_user! 
         @users = User.all
     end
 
     def show 
-        # byebug
-        if User.find_by(params[:id]) == nil 
-            redirect_to :index
-        else
             @user = User.find(params[:id])
-        end
     end
 
     # private 

@@ -10,8 +10,9 @@
 
 <% @user.comments.each do |comment| %>
     <p><%= link_to (image_tag comment.image.url, size: "64x64"), image_path(comment.image) %></p>
-    <li>Piece title: <%= link_to comment.image.title, image_path(comment.image) %></li>
-    <li>Comment date: <%= comment.comment_date  %></li>
+    <li><%= link_to comment.image.title, image_path(comment.image)%>
+        | <%=  comment.comment_date %>
+    </li>
     <li><%= comment.text %></li>
     <br>
 <% end %>

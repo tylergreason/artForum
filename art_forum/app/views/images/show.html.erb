@@ -11,10 +11,6 @@
 
 <% # add a new comment for any user (until authorization is added) %>
 <%=  form_for @comment do |f|%>
-    <% #give error if one exists %>
-    <% if flash[:notice] %>
-        <div class="notice"><%= flash[:notice] %></div>
-    <% end %>
 
     <% if user_signed_in? %>
         <%= f.label "Comment"  %>
