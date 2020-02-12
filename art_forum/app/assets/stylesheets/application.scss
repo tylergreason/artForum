@@ -32,13 +32,15 @@
 .navbar-nav{
     border-left: 2px solid black;
     border-right: 2px solid black;
-    border-bottom: 2px solid black; 
+    border-bottom: 3px solid black; 
+    border-top: 1px solid black;
     border-radius: 10px;
 
-    // center text 
-    text-align: center;
     background: #bbcfff80;
     width: 25%;
+    display: flex; 
+    flex-flow: row wrap;
+    justify-content: space-around;
     margin: auto;
 }
 
@@ -97,17 +99,21 @@
     display: flex; 
     flex-flow: row wrap;
     justify-content: flex-start;
+    width: 90%; 
     margin: auto; 
 }
 
 .image_in_index{
-    border: 2px solid black; 
-    border-radius: 10px;
     padding: 5px 0px 5px 0px;
     margin: 10px; 
     width: 220px;
     height: 350px; 
 
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 3px solid black; 
+    border-top: 1px solid black;
+    border-radius: 10px;
 }
 
 .image_in_index img{
@@ -132,7 +138,7 @@
 // title, artist 
 .image_in_index p:nth-child(3){
     background: rgb(187,207,240);
-    height: 25%;
+    height: 22%;
     padding: 0px 5px 0px 5px;
 }
 // user show

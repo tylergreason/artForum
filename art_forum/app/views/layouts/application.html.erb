@@ -13,9 +13,9 @@
   </head>
 
   <body>
-  <ul class="navbar-nav mr-auto">
+  <div class="navbar-nav">
     
-    <p class="navbar-text float-right">
+    <p>
     <% if user_signed_in? %>
       Hi, <strong><%= current_user.first_name.capitalize %></strong><br>
     <% end %>
@@ -29,7 +29,7 @@
       <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
     <% end %>
     </p>
-  </ul>
+  </div>
     <!-- for Devise per Rails Girl tutorial -->
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>

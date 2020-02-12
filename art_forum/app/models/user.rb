@@ -13,7 +13,18 @@ class User < ApplicationRecord
 
   # instance methods 
   def full_name 
+    # check if first and last name are not blank, then return the full name 
+    if self.first_name != nil && self.last_name != nil 
       self.first_name.capitalize + " " + self.last_name.capitalize
+    else
+      ""
+    end
   end
 
+  # destroy each of this user's comments when the user is deleted 
+  def destroy_comments 
+    self.comments.each do |comment|
+      comment.destroy
+    end 
+  end
 end
