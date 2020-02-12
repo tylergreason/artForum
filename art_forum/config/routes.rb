@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # resources :users
   resources :images, only: [:show, :index]
   resources :comments
+  resources :favorites
 
   # make image index the 'home' page 
   root to: "images#index"

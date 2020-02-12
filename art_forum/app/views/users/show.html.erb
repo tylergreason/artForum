@@ -22,4 +22,14 @@
         <p class="comment_text"><%= comment.text %></p>
     </div>
 <% end %>
+
+<!-- user favorites-->
+
+<% if current_user.favorites.count > 0 %>
+    <%= current_user.favorites.each do |favorite| %>
+        <%= link_to (image_tag favorite.image.url), image_path(favorite.image) %>
+    <% end %>
+<% else %>
+    <p>You don't have any favorites yet!</p>
+<% end %>
 </div>

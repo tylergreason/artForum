@@ -34,6 +34,15 @@
     <% end %>
 <% end %>
 
+<!--add favorite button-->
+<%= form_for @favorite do |f| %>
+    <% if user_signed_in? %>
+        <%= f.hidden_field :image_id, :value => @image.id %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.submit "Add favorite" %>
+    <% end %>
+<% end %>
+
 <h2>Comments: </h2>
 <% # all comments for this piece %>
 <% @image.comments.each do  |comment| %>
