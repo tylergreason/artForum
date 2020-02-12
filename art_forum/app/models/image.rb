@@ -54,12 +54,6 @@ class Image < ApplicationRecord
         self.created_at.strftime("%B %d, %Y")
     end
 
-    #define method for creating random dates. From: 
-    # https://stackoverflow.com/questions/4894198/how-to-generate-a-random-date-in-ruby
-    def self.random_time from = 0.0, to = Time.now
-            Time.at(from + rand * (to.to_f - from.to_f))
-    end
-
     # sort all images by the date they were made 
     def self.sort_by_creation_date 
         # the last item in this list is the most recent image 

@@ -17,9 +17,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    redirect_to current_user
+    # super
+  end
 
   # # PUT /resource
   # def update
@@ -29,7 +30,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
   def destroy
-    current_user.destroy_comments
     byebug
     super
   end
@@ -60,7 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def edit_user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :biography, :location)
+      # params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :biography, :location)
   end
 
   # def update_resource(resource, params)

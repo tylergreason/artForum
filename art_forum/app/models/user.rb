@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :biography, length: {maximum: 250}
 
   # associations 
-  has_many :comments 
+  has_many :comments, dependent: :destroy
   has_many :images, through: :comments 
 
   # instance methods 
@@ -20,11 +20,5 @@ class User < ApplicationRecord
       ""
     end
   end
-
-  # destroy each of this user's comments when the user is deleted 
-  def destroy_comments 
-    self.comments.each do |comment|
-      comment.destroy
-    end 
-  end
+  
 end

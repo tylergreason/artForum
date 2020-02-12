@@ -21,7 +21,7 @@
     <% end %>
     <%= link_to 'Home', images_path %> | 
     <% if user_signed_in? %>
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+      <!-- removed edit profile link because it wasn't working <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |-->
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> |
       <%= link_to 'My page', user_path(current_user.id), :class => 'navbar-link' %>
     <% else %>
