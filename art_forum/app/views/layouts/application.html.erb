@@ -10,6 +10,8 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- roboto font from google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <!--emoji stylesheet-->
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
   </head>
 
   <body>
@@ -17,7 +19,7 @@
     
     <p>
     <% if user_signed_in? %>
-      Hi, <strong><%= current_user.first_name.capitalize %></strong><br>
+      Hi, <%= current_user.first_name.capitalize %>:
     <% end %>
     <%= link_to 'Home', images_path %> | 
     <% if user_signed_in? %>
@@ -26,7 +28,8 @@
       <%= link_to 'My page', user_path(current_user.id), :class => 'navbar-link' %>
     <% else %>
       <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %> | 
+      About
     <% end %>
     </p>
   </div>

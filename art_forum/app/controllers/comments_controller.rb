@@ -2,8 +2,9 @@ class CommentsController < ApplicationController
 
     def create 
         @comment = Comment.new(comment_params)
-        if @comment.valid? 
-            @comment.save 
+        if @comment.save
+            # valid? 
+            # @comment.save 
             redirect_to image_path(params["comment"]["image_id"])
         else 
             flash[:notice] = @comment.error_message

@@ -25,29 +25,116 @@
     }
 
     // remove the top margin from HTML so the navbar touches the top of the screen 
-    body {
-        margin-top: 0px;
-    }
+body {
+    margin-top: 0px;
+}
 
+input {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 180px;
+    background-color: #bbcfff;
+}
+
+input:hover{
+    background-color: #bbcfff80;
+}
 .navbar-nav{
     border-left: 2px solid black;
     border-right: 2px solid black;
     border-bottom: 3px solid black; 
     border-top: 1px solid black;
     border-radius: 10px;
-
+    
     background: #bbcfff80;
     width: 25%;
     display: flex; 
+    flex-direction: column;
     flex-flow: row wrap;
     justify-content: space-around;
     margin: auto;
+    margin-bottom: 10px;
+
 }
+
+
+// welcome text on image index page
+.welcome_text{
+    border-left: 2px solid black; 
+    border-right: 2px solid black;
+    border-radius: 10px;
+    width: 80%;
+    margin: 10px auto 0px auto
+}
+.welcome_text h1{ 
+    // margin: auto;
+    margin: 0px auto 0px auto; 
+    text-align: center;
+    font-size: 9rem;
+    text-transform: uppercase;
+}
+
+.welcome_text :nth-child(1){
+    --fade_in_time: 2.5s;
+    animation: fadeIn ease var(fade_in_time);
+    -webkit-animation: fadeIn ease var(--fade_in_time);
+    -moz-animation: fadeIn ease var(--fade_in_time);
+    -o-animation: fadeIn ease var(--fade_in_time);
+    -ms-animation: fadeIn ease var(--fade_in_time);
+
+    @keyframes fadeIn{
+        0% {
+        opacity:0;
+        }
+        100% {
+        opacity:1;
+        }
+    }
+}
+
+.welcome_text :nth-child(2){
+    --fade_in_time: 3.5s;
+    animation: fadeIn ease var(fade_in_time);
+    -webkit-animation: fadeIn ease var(--fade_in_time);
+    -moz-animation: fadeIn ease var(--fade_in_time);
+    -o-animation: fadeIn ease var(--fade_in_time);
+    -ms-animation: fadeIn ease var(--fade_in_time);
+
+    @keyframes fadeIn{
+        0% {
+        opacity:0;
+        }
+        100% {
+        opacity:1;
+        }
+    }
+}
+
+.welcome_text :nth-child(3){
+    // 'select an image below...' div 
+    text-align: center;
+    --fade_in_time: 3.5s;
+    animation: fadeIn ease var(fade_in_time);
+    -webkit-animation: fadeIn ease var(--fade_in_time);
+    -moz-animation: fadeIn ease var(--fade_in_time);
+    -o-animation: fadeIn ease var(--fade_in_time);
+    -ms-animation: fadeIn ease var(--fade_in_time);
+
+    @keyframes fadeIn{
+        0% {
+        opacity:0;
+        }
+        100% {
+        opacity:1;
+        }
+    }
+}
+
 
 .image_show {    
     // background-color: #f0efef80;
-    background: rgb(240,239,239);
-    background: linear-gradient(0deg, rgba(240,239,239,1) 0%, rgba(171,126,126,.25) 50%, rgba(240,239,239,1) 100%);
+    // background: rgb(240,239,239);
+    // background: linear-gradient(0deg, rgba(240,239,239,1) 0%, rgba(171,126,126,.25) 50%, rgba(240,239,239,1) 100%);
 }
 
 // center the displayed image 
@@ -55,8 +142,63 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    // width: 50%;
+    height: 95vh;
+    // fade in:
+    // this seems super extra...  
+    --fade_in_time: .3s;
+    animation: fadeIn ease var(fade_in_time);
+    -webkit-animation: fadeIn ease var(--fade_in_time);
+    -moz-animation: fadeIn ease var(--fade_in_time);
+    -o-animation: fadeIn ease var(--fade_in_time);
+    -ms-animation: fadeIn ease var(--fade_in_time);
+
+    @keyframes fadeIn{
+        0% {
+        opacity:0;
+        }
+        100% {
+        opacity:1;
+        }
+    }
+    
+    @-moz-keyframes fadeIn {
+        0% {
+        opacity:0;
+        }
+        100% {
+        opacity:1;
+        }
+    }
+    
+    @-webkit-keyframes fadeIn {
+        0% {
+        opacity:0;
+        }
+        100% {
+        opacity:1;
+        }
+    }
+    
+    @-o-keyframes fadeIn {
+        0% {
+        opacity:0;
+        }
+        100% {
+        opacity:1;
+        }
+    }
+    
+    @-ms-keyframes fadeIn {
+        0% {
+        opacity:0;
+        }
+        100% {
+        opacity:1;
+        }
+      }
 }
+
 
 .image_info {
     text-align: center;
@@ -73,14 +215,18 @@
 
 .metro_link{
     font-size: .8rem;
+    margin-bottom: 10px;
 }
 
 .comment {
     border: 2px solid black; 
     border-radius: 10px; 
-    margin: 10px;
+    margin: auto; 
+    margin-bottom: 10px;
     padding: 10px;
     background-color: #faafff40;
+    width: 50%; 
+    justify-content: center;
 }
 
 .comment_text {
@@ -92,13 +238,19 @@
     // background: #f0efef;
 }
 
+.comment_section h2{
+    justify-content: center;
+    margin: 10px auto 5px auto;
+    width: 50%; 
+}
+
 
 
 // image index
 .image_index {
     display: flex; 
     flex-flow: row wrap;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     width: 90%; 
     margin: auto; 
 }
@@ -109,10 +261,21 @@
     width: 220px;
     height: 350px; 
 
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: 3px solid black; 
-    border-top: 1px solid black;
+    --hover-color: black;
+    border-left: 2px solid var(--hover-color);
+    border-right: 2px solid var(--hover-color);
+    border-bottom: 3px solid var(--hover-color);
+    border-top: 3px solid var(--hover-color);
+    border-radius: 10px;
+}
+
+// different color for hovered image preview box 
+.image_in_index:hover{
+    --hover-color: black;
+    border-left: 2px solid var(--hover-color);
+    border-right: 2px solid var(--hover-color);
+    border-bottom: 5px solid var(--hover-color); 
+    border-top: 1px solid var(--hover-color);
     border-radius: 10px;
 }
 
@@ -142,3 +305,63 @@
     padding: 0px 5px 0px 5px;
 }
 // user show
+.user_info {
+    background-color: #bbcfff;
+    padding: 5px 10px 10px 10px;
+    margin: auto;
+    border-radius: 10px;
+    display: flex; 
+    flex-flow: row; 
+    width: 70%; 
+    justify-content: center;
+}
+
+.user_info h1{
+    font-size: 4rem;
+    text-transform: uppercase;
+    margin: 0px;
+    margin-right: 20px;
+    overflow-wrap: break-word; 
+}
+
+.col_1{
+    // width:50%;
+}
+// user about me section 
+.col_2 {
+    margin: 10px;
+    overflow-wrap: break-word;  
+    // width:50%;  
+}
+
+.user_show_comments {
+    margin: auto; 
+    justify-content: center;
+}
+
+.user_show_comments img{ 
+    display: block;
+
+    // crop image to square 
+    --image_size: 10vh;
+    width: var(--image_size);
+    height: var(--image_size);
+    object-fit: cover;
+}
+
+.write_comment {
+    justify-content: center;
+    margin: auto;
+    width: 50%; 
+}
+
+.write_comment textarea{
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+a {
+    color: #4f84ff;
+    text-decoration: none;
+}

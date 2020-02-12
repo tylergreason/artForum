@@ -1,4 +1,8 @@
-<h1>ALL IMAGES</h1>
+<div class="welcome_text">
+    <h1>welcome to</h1>
+    <h1>art forum</h1>
+    <div>select an image below and join the discussion</div>
+</div>
 
 <% Image.todays_image %>
 
@@ -8,7 +12,7 @@
         <div class="image_in_index">
             <p><%= image.image_date %></p>
             <p><%= link_to (image_tag image.url), image_path(image) %></p>
-            <p><%= link_to image.title, image_path(image) %>, by <%= image.artist %></p>
+            <p><%=image.title%> by <%= image.artist %></p>
         </div>
     <% end %>
 <div>

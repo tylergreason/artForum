@@ -1,4 +1,14 @@
-<h1>edit comments page </h1>
+<h1>Edit comment</h1>
+<div class="show_image">
+    <%= image_tag @comment.image.url%>
+</div>
+
+<div class="image_info">
+    <h2><%= @comment.image.title %></h2>
+    <p>by <%= @comment.image.artist %></p>
+    <p>dated <%= @comment.image.date_created %></p>
+    <p class="metro_link"><%= link_to "Find more information at The Met's page for this piece", @comment.image.metro_link %></p>
+</div>  
 
 <% if @comment.errors.any? %>
 <ul>
@@ -11,8 +21,12 @@
 </ul>
 <% end %>
 
-<%= form_for @comment do |f| %>
-    <%= f.label "Edit text" %>
-    <%= f.text_area :text %>
-<%= f.submit %>
+    <div class="write_comment">
+    <h3>Edit your comment</h3>
+    <%= form_for @comment do |f| %>
+
+        <%= f.text_area :text %>
+        <br>
+    <%= f.submit %>
+    </div>
 <% end %>

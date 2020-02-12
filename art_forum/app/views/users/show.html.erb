@@ -1,19 +1,25 @@
-<h1><%= @user.full_name%></h1>
+<div class="user_info">
+    <div class="col_1">
+        <h1><%= @user.full_name%></h1>
+        <p><i class="em em-round_pushpin" aria-role="presentation" aria-label="ROUND PUSHPIN"></i><%= @user.location.capitalize %></p>
+    </div>
+    <div class="col_2">
+        <p>About me: </p>
+        <p><%=  @user.biography%></p>
+    </div>
+</div>
 
-<p><%= @user.email %></p>
-<p><%= @user.location.capitalize %></p>
-<p>About me: </p>
-<p><%=  @user.biography%></p>
-
+<div class="user_show_comments">
 <h3>My comments: </h3>
 
 <% @user.comments.each do |comment| %>
     <div class="comment">
-        <%= link_to (image_tag comment.image.url, size: "64x64"), image_path(comment.image) %>
+        <%= link_to (image_tag comment.image.url), image_path(comment.image) %>
 
-        <p><%= link_to comment.image.title, image_path(comment.image) %>, by <%= comment.image.artist %></p>
-
+        <%=comment.image.title%>, by <%= comment.image.artist %>
+        <br>
         <%=  comment.comment_date %>: 
-        <li class="comment_text"><%= comment.text %></li>
+        <p class="comment_text"><%= comment.text %></p>
     </div>
 <% end %>
+</div>
