@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :images, through: :comments 
 
+  has_many :favorites, dependent: :destroy 
+  has_many :images, through: :favorites
+
   # instance methods 
   def full_name 
     # check if first and last name are not blank, then return the full name 

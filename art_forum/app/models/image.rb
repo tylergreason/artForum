@@ -3,6 +3,9 @@ class Image < ApplicationRecord
     # associations 
     has_many :comments 
     has_many :users, through: :comments 
+
+    has_many :favorites 
+    has_many :users, through: :favorites
     
     # validations
     validates :url, :metro_link, :artist, :date_created, :title, presence: true 
