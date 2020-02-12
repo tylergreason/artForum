@@ -1,18 +1,19 @@
-<%= link_to 'Back to all users', users_path %>
 <h1><%= @user.full_name%></h1>
 
-<p>Email: <%= @user.email %></p>
-<p>Location: <%= @user.location %></p>
-<p>Biography: </p>
+<p><%= @user.email %></p>
+<p><%= @user.location.capitalize %></p>
+<p>About me: </p>
 <p><%=  @user.biography%></p>
 
 <h3>My comments: </h3>
 
 <% @user.comments.each do |comment| %>
-    <p><%= link_to (image_tag comment.image.url, size: "64x64"), image_path(comment.image) %></p>
-    <li><%= link_to comment.image.title, image_path(comment.image)%>
-        | <%=  comment.comment_date %>
-    </li>
-    <li><%= comment.text %></li>
-    <br>
+    <div class="comment">
+        <%= link_to (image_tag comment.image.url, size: "64x64"), image_path(comment.image) %>
+
+        <p><%= link_to comment.image.title, image_path(comment.image) %>, by <%= comment.image.artist %></p>
+
+        <%=  comment.comment_date %>: 
+        <li class="comment_text"><%= comment.text %></li>
+    </div>
 <% end %>

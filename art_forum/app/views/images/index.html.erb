@@ -1,16 +1,14 @@
-<h1>All Images</h1>
+<h1>ALL IMAGES</h1>
 
 <% Image.todays_image %>
 
-<ul>
+<div class="image_index">
     <% @images.each do |image| %>
-        <li>
-            <p><%= link_to (image_tag image.url, size: "64x64"), image_path(image) %></p>
-            <p>Title: <%= link_to image.title, image_path(image) %></p>
-            <p>Artist: <%= image.artist %></p>
-            <p><%= link_to 'Metro page for this piece', image.metro_link %></p>
-            <p>Date created: <%= image.date_created %></p>
-            <p>Date posted: <%= image.image_date %></p>
-        </li>
+
+        <div class="image_in_index">
+            <p><%= image.image_date %></p>
+            <p><%= link_to (image_tag image.url), image_path(image) %></p>
+            <p><%= link_to image.title, image_path(image) %>, by <%= image.artist %></p>
+        </div>
     <% end %>
-</ul>
+<div>

@@ -7,23 +7,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   # def new
   #   super
-  #   byebug
+  #   
   # end
 
-  # POST /resource
+  # # POST /resource
   # def create
   #   super
   #   byebug
   # end
 
-  # GET /resource/edit
+  # # GET /resource/edit
   # def edit
   #   super
   # end
 
-  # PUT /resource
+  # # PUT /resource
   # def update
   #   super
+  #   @user.update
   # end
 
   # DELETE /resource
@@ -40,7 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -49,11 +50,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def sign_up_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :biography, :location)
+    params(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :biography, :location)
   end
   # If you have extra params to permit, append them to the sanitizer.
   def account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :email, :password, :password_confirmation, :biography, :location])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :email, :biography, :location])#, :password, :password_confirmation])
+  end
+
+  def edit_user_params
+      params.require(:user).permit(:first_name, :last_name,:biography, :location)
+  end
+
+  def update_resource(resource, params)
+    @user.update_without_password(:first_name, :last_name,:biography, :location)
   end
 
   # The path used after sign up.
@@ -65,4 +74,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  # def update_resource(resource, params)
+  #   resource.update_without_password(params)
+  # end 
 end

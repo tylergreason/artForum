@@ -13,38 +13,39 @@
  *= require_tree .
  *= require_self
  */
+ 
+ // @import "bulma";
+ // @import "bulma/sass/utilities/_all.sass";
+ // @import "bulma/sass/grid/columns.sass";
+ 
+ * {
+     // set all fonts to be the same 
+     font-family: 'Roboto', sans-serif;
+     font-weight: 100;
+    }
 
-// @import "bulma";
-// @import "bulma/sass/utilities/_all.sass";
-// @import "bulma/sass/grid/columns.sass";
-
-* {
-    // set all fonts to be the same 
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-}
+    // remove the top margin from HTML so the navbar touches the top of the screen 
+    body {
+        margin-top: 0px;
+    }
 
 .navbar-nav{
     border-left: 2px solid black;
     border-right: 2px solid black;
     border-bottom: 2px solid black; 
-    // rounded corners 
     border-radius: 10px;
+
     // center text 
     text-align: center;
     background: #bbcfff80;
-    width: 50%;
+    width: 25%;
     margin: auto;
-    margin-top: 0px;
 }
 
-.image_show {
-    // background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(196,246,255,1) 4%, rgba(255,255,255,1) 100%);
-    // background-image: url('wild-sea.png');
-    // background-repeat: repeat;   
-    // background: rgba(255, 255, 255, 0.315); 
-    
-    background-color: #f0efef80;
+.image_show {    
+    // background-color: #f0efef80;
+    background: rgb(240,239,239);
+    background: linear-gradient(0deg, rgba(240,239,239,1) 0%, rgba(171,126,126,.25) 50%, rgba(240,239,239,1) 100%);
 }
 
 // center the displayed image 
@@ -77,18 +78,61 @@
     border-radius: 10px; 
     margin: 10px;
     padding: 10px;
-    background-color: #faafff80;
+    background-color: #faafff40;
 }
 
 .comment_text {
     padding-left: 10px;
+    overflow-wrap: break-word;
 }
 
 .comment_section {
-    background: #f0efef;
+    // background: #f0efef;
 }
 
-// remove the top margin from HTML so the navbar touches the top of the screen 
-body {
-    margin-top: 0px;
+
+
+// image index
+.image_index {
+    display: flex; 
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    margin: auto; 
 }
+
+.image_in_index{
+    border: 2px solid black; 
+    border-radius: 10px;
+    padding: 5px 0px 5px 0px;
+    margin: 10px; 
+    width: 220px;
+    height: 350px; 
+
+}
+
+.image_in_index img{
+    display: block;
+
+    // crop image to square 
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+
+    // center image 
+    margin: auto;
+}
+
+// date 
+.image_in_index p:first-child{
+    background-color:#faafff;
+    margin: 10px 0px 10px 0px; 
+    padding-left: 5px;
+}
+
+// title, artist 
+.image_in_index p:nth-child(3){
+    background: rgb(187,207,240);
+    height: 25%;
+    padding: 0px 5px 0px 5px;
+}
+// user show

@@ -39,7 +39,7 @@ class Image < ApplicationRecord
 
     # check if the most recent image is today's image and if not, create a new one for today. This method should run whenever the Image index page is loaded. 
     def self.todays_image 
-        last_image_date = self.sort_by_creation_date.last.created_at 
+        last_image_date = self.sort_by_creation_date.first.created_at 
         today = DateTime.now 
         if last_image_date.year == today.year &&  last_image_date.month == today.month && last_image_date.day == today.day 
             p 'an image has already been generated for today'
@@ -63,6 +63,6 @@ class Image < ApplicationRecord
     # sort all images by the date they were made 
     def self.sort_by_creation_date 
         # the last item in this list is the most recent image 
-        self.all.sort_by{|image| image.created_at}
+        self.all.sort_by {|image| image.created_at}.reverse
     end
 end
