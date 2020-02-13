@@ -11,7 +11,6 @@
 <div class="user_show">
     <div class="user_show_comments">
     <h3>My comments: </h3>
-
     <% @user.comments.each do |comment| %>
         <div class="comment">
             <%= link_to (image_tag comment.image.url), image_path(comment.image) %>
@@ -30,11 +29,10 @@
         <% @user.favorites.each do |favorite| %>
             <div class="image_in_index">
             <%= link_to (image_tag favorite.image.url), image_path(favorite.image) %>
-            
             </div>
+            
             <% if  user_signed_in? && current_user.id == favorite.user.id %>
-                <br>    
-                <%= button_to 'remove favorite', favorite_path(favorite.id), :method => :delete %>
+                <%#= button_to 'remove favorite', favorite_path(favorite.id), :method => :delete %>
             <% end %>
         <% end %>
     <% else %>

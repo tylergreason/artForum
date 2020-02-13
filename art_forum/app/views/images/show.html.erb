@@ -7,13 +7,16 @@
     <h2><%= @image.title %></h2>
     <p>by <%= @image.artist %></p>
     <p>dated <%= @image.date_created %></p>
-    <p class="metro_link"><%= link_to "Find more information at The Met's page for this piece", @image.metro_link %></p>
+    <p class="metro_link"><%= link_to "Met's page   ", @image.metro_link %></p>
+    <p>Posted <%= @image.image_date %></p>
 </div>
 
     <!--add favorite button-->
+    <div class="image_show_favorite">
     <% if user_signed_in? %>
         <% if current_user.user_has_favorite(@image.id) %>
             <p>You and <%= @image.number_favorites-1 %> other people have favorited this piece</p>
+            <%= button_to "Remove favorite", favorite_path(@image.favorites.find_by(image_id: @image.id, user_id: current_user.id)), :method => :delete %>
         <% else %>
             <p><%= @image.number_favorites %> users have favorited this image.</p>
             <%= form_for @favorite do |f| %>
@@ -23,6 +26,7 @@
             <% end %>
         <% end %>
     <% end %>
+    </div>
 
 
 <div class="comment_section">

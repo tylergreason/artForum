@@ -220,6 +220,8 @@ input:hover{
 
 .comment {
     border: 2px solid black; 
+    border-top: 3px solid black; 
+    border-bottom: 3px solid black; 
     border-radius: 10px; 
     margin: auto; 
     margin-bottom: 10px;
@@ -309,6 +311,13 @@ input:hover{
     height: 22%;
     padding: 0px 5px 0px 5px;
 }
+
+// image show favorite area 
+.image_show_favorite {
+    margin: auto; 
+    width: 50%;
+}
+
 // user show
 .user_info {
     background-color: #bbcfff;
@@ -317,8 +326,13 @@ input:hover{
     border-radius: 10px;
     display: flex; 
     flex-flow: row; 
-    width: 70%; 
+    width: 80%; 
     justify-content: center;
+    --hover-color: black;
+    border-left: 2px solid var(--hover-color);
+    border-right: 2px solid var(--hover-color);
+    border-bottom: 3px solid var(--hover-color);
+    border-top: 3px solid var(--hover-color);
 }
 
 .user_info h1{
@@ -343,17 +357,62 @@ input:hover{
 .user_show{
     display: flex; 
     flex-direction: row;
-}
-
-.user_show_favorites .img{
-    height: 100px;
-}
-
-.user_show_comments {
-    margin: auto; 
+    width: 80%;
+    margin: auto;   
     justify-content: center;
 }
 
+.user_show_comments, .user_show_favorites {
+    margin: 10px 20px 0px 20px;  
+}
+
+.user_show_comments{
+    flex-grow: 2;
+}
+
+.user_show_favorites{
+    flex-grow: 1;
+}
+
+.user_show .comment {
+    width: 100%;
+    word-wrap: break-word;
+}
+
+//change borders of comment when hovered 
+.user_show .comment:hover {
+    --hover-color: black;
+    border-left: 2px solid var(--hover-color);
+    border-right: 2px solid var(--hover-color);
+    border-bottom: 5px solid var(--hover-color);
+    border-top: 1px solid var(--hover-color);
+    border-radius: 10px;
+}
+
+.user_show_favorites .img{
+    // height: 100px;
+}
+
+// image frame for favorites listing
+.user_show .image_in_index {
+    --image_size: 18vh;
+    width: var(--image_size);
+    height: var(--image_size);
+    object-fit: cover;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+// img in favorites listing 
+.user_show .image_in_index img{
+    --image_size: 18vh;
+    width: var(--image_size);
+    height: var(--image_size);
+    object-fit: cover;
+}
+
+// .user_show .button_to{  
+
+// }
 .user_show_comments img{ 
     display: block;
 
@@ -372,8 +431,11 @@ input:hover{
 
 .write_comment textarea{
     width: 100%;
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 10px;
+    background-color: #bbcfff;
+    padding: 10px;
+    margin: 10px -10px 10px -10px; 
 }
 
 a {
@@ -401,18 +463,19 @@ a {
     width: 100%;
 }
 
-.sign_up input, .login input{
+input {
     height: 2rem;
     font-size: 1rem;
-    width: 100%;
+    margin: 5px;
+}
+
+.sign_up input, .login input{
+    width: 90%;
     padding: 5px;   
     padding-left: 10px;
     margin: 2px 0px 2px 0px;
 }
 
-.sign_up.actions {
-    width: 200%;
-}
 
 #user_remember_me{ 
     width:25%;
@@ -421,7 +484,7 @@ a {
 #user_biography{
     border: 1px solid black;
     border-radius: 10px;
-    width: 100%;
+    width: 90%;
     height: 3rem;
     padding: 5px; 
     padding-left: 10px;
