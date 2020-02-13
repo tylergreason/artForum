@@ -6,7 +6,11 @@ class FavoritesController < ApplicationController
         end
     end
 
-
+    def destroy 
+        @favorite = Favorite.find(params[:id])
+        redirect_to user_path(@favorite.user_id)
+        @favorite.delete
+    end
 
     private 
     def favorite_params 

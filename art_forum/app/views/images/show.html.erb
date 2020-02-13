@@ -10,7 +10,20 @@
     <p class="metro_link"><%= link_to "Find more information at The Met's page for this piece", @image.metro_link %></p>
 </div>
 
-<% #add custom error messages for if the comment doesn't work %>
+    <!--add favorite button-->
+    <% if user_signed_in? %>
+        <% if current_user.user_has_favorite(@image.id) %>
+            <p>You and <%= @image.number_favorites-1 %> other people have favorited this piece</p>
+        <% else %>
+            <p><%= @image.number_favorites %> users have favorited this image.</p>
+            <%= form_for @favorite do |f| %>
+                <%= f.hidden_field :image_id, :value => @image.id %>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <%= f.submit "Add favorite" %>
+            <% end %>
+        <% end %>
+    <% end %>
+
 
 <div class="comment_section">
 <% # add a new comment for any user (until authorization is added) %>
@@ -34,16 +47,8 @@
     <% end %>
 <% end %>
 
-<!--add favorite button-->
-<%= form_for @favorite do |f| %>
-    <% if user_signed_in? %>
-        <%= f.hidden_field :image_id, :value => @image.id %>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.submit "Add favorite" %>
-    <% end %>
-<% end %>
 
-<h2>Comments: </h2>
+<h2>This piece has <%= @image.number_comments %> comments: </h2>
 <% # all comments for this piece %>
 <% @image.comments.each do  |comment| %>
     <div class="comment">

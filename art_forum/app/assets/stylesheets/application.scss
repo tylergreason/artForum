@@ -132,9 +132,7 @@ input:hover{
 
 
 .image_show {    
-    // background-color: #f0efef80;
-    // background: rgb(240,239,239);
-    // background: linear-gradient(0deg, rgba(240,239,239,1) 0%, rgba(171,126,126,.25) 50%, rgba(240,239,239,1) 100%);
+
 }
 
 // center the displayed image 
@@ -267,6 +265,11 @@ input:hover{
     border-bottom: 3px solid var(--hover-color);
     border-top: 3px solid var(--hover-color);
     border-radius: 10px;
+    font-size: .9rem;
+}
+
+// title and artist 
+.image_in_index :nth-child(3){
 }
 
 // different color for hovered image preview box 
@@ -332,6 +335,16 @@ input:hover{
     margin: 10px;
     overflow-wrap: break-word;  
     // width:50%;  
+}
+
+// user comments and favorites dual column layout 
+.user_show{
+    display: flex; 
+    flex-direction: row;
+}
+
+.user_show_favorites .img{
+    height: 100px;
 }
 
 .user_show_comments {

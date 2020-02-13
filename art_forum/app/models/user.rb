@@ -23,5 +23,14 @@ class User < ApplicationRecord
       ""
     end
   end
+
+  # method to check if user has already favorited this piece 
+  def user_has_favorite(image_id)
+    if self.favorites.find_by(image_id: image_id)
+      return true 
+    else 
+      return false
+    end
+  end
   
 end

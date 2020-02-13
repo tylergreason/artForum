@@ -8,28 +8,37 @@
         <p><%=  @user.biography%></p>
     </div>
 </div>
+<div class="user_show">
+    <div class="user_show_comments">
+    <h3>My comments: </h3>
 
-<div class="user_show_comments">
-<h3>My comments: </h3>
-
-<% @user.comments.each do |comment| %>
-    <div class="comment">
-        <%= link_to (image_tag comment.image.url), image_path(comment.image) %>
-
-        <%=comment.image.title%>, by <%= comment.image.artist %>
-        <br>
-        <%=  comment.comment_date %>: 
-        <p class="comment_text"><%= comment.text %></p>
-    </div>
-<% end %>
-
-<!-- user favorites-->
-
-<% if current_user.favorites.count > 0 %>
-    <%= current_user.favorites.each do |favorite| %>
-        <%= link_to (image_tag favorite.image.url), image_path(favorite.image) %>
+    <% @user.comments.each do |comment| %>
+        <div class="comment">
+            <%= link_to (image_tag comment.image.url), image_path(comment.image) %>
+            <%=comment.image.title%>, by <%= comment.image.artist %>
+            <br>
+            <%=  comment.comment_date %>: 
+            <p class="comment_text"><%= comment.text %></p>
+        </div>
     <% end %>
-<% else %>
-    <p>You don't have any favorites yet!</p>
-<% end %>
+    </div>
+
+    <!-- user favorites-->
+    <div class="user_show_favorites">
+    <h3>My favorites:</h3>
+    <% if @user.favorites.count > 0 %>
+        <% @user.favorites.each do |favorite| %>
+            <div class="image_in_index">
+            <%= link_to (image_tag favorite.image.url), image_path(favorite.image) %>
+
+            </div>
+            <% if  user_signed_in? && current_user.id == favorite.user.id %>
+                <br>    
+                <%= button_to 'remove favorite', favorite_path(favorite.id), :method => :delete %>
+            <% end %>
+        <% end %>
+    <% else %>
+        <p>This user does not have any favorites yet!</p>
+    <% end %>
+    </div>
 </div>

@@ -62,4 +62,17 @@ class Image < ApplicationRecord
         # the last item in this list is the most recent image 
         self.all.sort_by {|image| image.created_at}.reverse
     end
+
+    # find number of unique users who have favorited this image 
+    def number_favorites 
+        unique_users = self.favorites.uniq{ |favorite|
+            favorite.user_id
+        }
+        number_unique_users = unique_users.count
+    end
+
+    # find number of comments this image has 
+    def number_comments 
+        self.comments.count
+    end
 end
