@@ -12,4 +12,7 @@ Rails.application.routes.draw do
 
   # make image index the 'home' page 
   root to: "images#index"
+
+  # custom 'about' route 
+  get 'about', to: 'static#about'
 end
