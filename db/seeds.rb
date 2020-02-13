@@ -15,7 +15,7 @@ require 'rest-client'
 require 'json'
 
 
-10.times do 
+20.times do 
     a = User.new(
         email: Faker::Internet.email, 
         password: "password", 
@@ -39,13 +39,14 @@ url = 'https://collectionapi.metmuseum.org/public/collection/v1/search?q=hasImag
 response = RestClient.get(url)
 # turn that into JSON
 images = JSON.parse(response)
-15.times do
+10.times do
     Image.create_image
 end
 
 # give each user multiple comments 
 User.all.each do |user| 
-    5.times do 
+    10.times do 
         Comment.create(user: user, image: Image.all.sample, text: Faker::Lorem.sentence(word_count: 30))
+        Favorite.create(user: user, image: Image.all.sample)
     end
 end

@@ -1,89 +1,51 @@
-# ART FORUM
+# Art Forum 
 
-Art Forum (working title) is a site for users to discuss images of daily-posted art pieces and create a collection of their favorite pieces. 
+Art Forum is a social site meant to connect users with art and each other. 
 
-This is my second module project for Flatiron's Immersive Software Engineering program, meant to exemplify our ability to create a Rails application. The proposal for my project can be found below. This is a living document and some things may change between now and when it is submitted (Friday, February 14th, 2020). 
+## Background 
 
-## USER STORIES 
+Art Forum was created to exemplify my understanding of Ruby on Rails and proper web application construction, including proper routing, use of views, models, and controllers, and web page design. Art Forum was used for my mod 2 project during my time in Flatiron School's Immersive Software Engineering program. 
 
-- As a user, I want to view photos of art pieces. (Read)
-- As a user, I want to comment on art pieces. (Create)
-- As a user, I want to edit my comments. (Edit)
-- As a user, I want to delete my comments. (Destroy)
-- As a user, I want to be able to find more information about the piece or artist through provided links to their sources or Wikipedia articles (if available). 
-- As a user, I want to be able to view my profile, including images I have commented on and my favorite images. (Read) 
+The intent behind Art Forum was to make an application that could connect art lovers to each other. Each day a new image from The Metropolitan Museum of Art's API is added to the site's collection of images. Users are able to comment on images and add images to their list of favorite images. Stretch goals included following other users, but I did not implement this before the project deadline. 
 
-## SCHEMA
+Ultimately, Art Forum is a proof-of-concept of an application that can connect people over their love of art; specifically, people who may not have the means to see art in world famous museums. While planning the application, I thought of those who did not grow up near amazing museums or in artistic communities like I was lucky enough to, and wanted to create a tool to connect those people to new art in an easy to access manner. 
 
-### RELATIONSHIPS
+## Funcionality 
 
-User -< Comment >- Image
+Users can: 
 
-User >- Favorite_Image -< Image 
+-  Create an account, including their email address, encrypted password, first and last names, location, and biography. 
 
-<!-- User -< Follower  -->
+- View all pieces or one piece of art from The Metropolitan Museum of Art's API. 
 
-### ATTRIBUTES 
+- Comment on pieces. 
 
-- User 
+- Edit or delete their comments. 
 
-  - First name 
+- Add pieces to their list of favorites. 
 
-  - Last name 
+- Remove pieces from their list of favorites. 
 
-  - Email 
+- View their own or other's profile page, which includes their information, comments, and favorite pieces. 
 
-  - Location (string) 
+## Association Wireframe
 
-  - Biography (limit to 250 char)
+Models, their attributes, and associations: 
 
-- Image 
+![Associations image](associations.png)
 
-  - ~~Source~~
+## Tools and Technologies 
 
-  - URL
+Ruby on Rails 6 was used to build the application. I used Faker to make seed data, rest and JSON gems for parsing The Met's API, Devise for authentication and authorization, and vanilla CSS for styling. 
 
-  - Link to Metropolitan page for that piece 
+-  [Ruby on Rails 6](https://rubyonrails.org/)
 
-  - Artist 
+-  [Faker](https://github.com/faker-ruby/faker)
 
-  - Region (if available)
+- [REST Client gem](https://github.com/rest-client/rest-client)
 
-  - Date created (by the artist) 
+- [JSON gem](https://rubygems.org/gems/json/versions/1.8.3)
 
-  - Blurb about the pieces (if available)
+-  [The Metropolitan Museum of Art API](https://metmuseum.github.io/)
 
-  - Date used (the date the piece appeared on the site)
-
-- Comment 
-
-  - user_id 
-
-  - image_id 
-
-  - Comment text
-
-- Favorite Image 
-
-  - user_id
-
-  - image_id 
-<!-- 
-- Follower 
-
-  - user_id (of the following User)
-
-  - user_id (of the followed User)  -->
-
-## STRETCH GOALS 
-
-- Stying before stretch goals! The presentation of the app is key! 
-
-- As a user, I want to create more than one collection (more than just Favorite collection), and write about that collection. (Create, read, update, destroy) 
-
-- Incorporate more sources and view images sorted by their source (different museums, Behance, Dribble, etcetera).  
-
-- As a user, I want to select other users to add to my Following list and have the ability to remove those users. (Edit, destroy). 
-
-
-# FINAL READ ME BELOW (deleting everything here and above before submission)
+- [Devise](https://github.com/heartcombo/devise)
