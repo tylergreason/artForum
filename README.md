@@ -49,3 +49,37 @@ Ruby on Rails 6 was used to build the application. I used Faker to make seed dat
 -  [The Metropolitan Museum of Art API](https://metmuseum.github.io/)
 
 - [Devise](https://github.com/heartcombo/devise)
+
+## Installation 
+
+The installation process assume you have Ruby on Rails installed and know how to navigate your terminal. 
+
+Run the following in your terminal (Mac and Linux): 
+
+```
+# clone this repo
+
+git clone git@github.com:tylergreason/artForum.git art_forum
+
+#cd into the new directory 
+
+cd art_forum
+
+# bundle/install the necessary gems 
+
+bundle install
+
+# migrate the database 
+
+rails db:migrate
+
+# seed the database 
+
+rails db:seed
+
+# start a rails server
+
+rails s
+```
+
+Navigate to localhost:3000 in your browser to view the site. 
