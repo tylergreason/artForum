@@ -84,3 +84,6 @@ User >- Favorite_Image -< Image
 - Incorporate more sources and view images sorted by their source (different museums, Behance, Dribble, etcetera).  
 
 - As a user, I want to select other users to add to my Following list and have the ability to remove those users. (Edit, destroy). 
+
+
+# FINAL READ ME BELOW (deleting everything here and above before submission)
