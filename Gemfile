@@ -3,7 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
 gem 'faker'
-gem "bulma-rails", "~> 0.8.0"
 gem 'rest-client'
 gem 'json'
 gem 'devise'
