@@ -32,7 +32,7 @@ Users can:
 
 Models, their attributes, and associations: 
 
-![Associations image](associations.png)
+![Associations image](readme_images/associations.png)
 
 ## Tools and Technologies 
 
@@ -83,3 +83,17 @@ rails s
 ```
 
 Navigate to localhost:3000 in your browser to view the site. 
+
+## Usage 
+
+To create an account, select Sign up from the homepage: 
+
+
+
+<img src="readme_images/homepage.png" width="800"/>
+
+<img src="readme_images/signup.png" width="800"/>
+
+Select any image from the homepage and scroll below the image to comment on it: 
+
+<img src="readme_images/comment.png" width="800"/>
