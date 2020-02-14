@@ -36,7 +36,7 @@ Models, their attributes, and associations:
 
 ## Tools and Technologies 
 
-Ruby on Rails 6 was used to build the application. I used Faker to make seed data, rest and JSON gems for parsing The Met's API, Devise for authentication and authorization, and vanilla CSS for styling. 
+Ruby on Rails 6 was used to build the application. I used Faker to make seed data, rest and JSON gems for parsing The Met's API for art data, Devise for authentication and authorization, and vanilla CSS for styling. 
 
 -  [Ruby on Rails 6](https://rubyonrails.org/)
 
@@ -61,7 +61,7 @@ Run the following in your terminal (Mac and Linux):
 
 git clone git@github.com:tylergreason/artForum.git art_forum
 
-#cd into the new directory 
+# cd into the new directory 
 
 cd art_forum
 
@@ -97,3 +97,4 @@ To create an account, select Sign up from the homepage:
 Select any image from the homepage and scroll below the image to comment on it: 
 
 <img src="readme_images/comment.png" width="800"/>
+

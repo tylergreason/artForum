@@ -29,6 +29,8 @@
         <% @user.favorites.each do |favorite| %>
             <div class="image_in_index">
             <%= link_to (image_tag favorite.image.url), image_path(favorite.image) %>
+            <!--the button below would be used to delete this favorite from this view, but I don't have the redirect working correctly yet -->
+            <%#= button_to "remove favorite", favorite_path(favorite), method: :delete %>
             </div>
             
             <% if  user_signed_in? && current_user.id == favorite.user.id %>

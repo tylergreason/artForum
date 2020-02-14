@@ -17,10 +17,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # # GET /resource/edit
-  def edit
-    redirect_to current_user
-    # super
-  end
+  # def edit
+  #   redirect_to current_user
+  #   # super
+  # end
 
   # # PUT /resource
   # def update
@@ -29,10 +29,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
-  def destroy
-    byebug
-    super
-  end
+  # def destroy
+  #   byebug
+  #   super
+  # end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -43,7 +43,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  protected
+  # protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -55,13 +55,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     #   params(:user).permit(:sign_up, permit(:first_name, :last_name, :email, :password, :password_confirmation, :biography, :location))
     # end
   # If you have extra params to permit, append them to the sanitizer.
-  def account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :email, :password, :password_confirmation, :biography, :location])
-  end
+  # def account_update_params
+    # devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :email, :password, :password_confirmation, :biography, :location])
+  # end
 
-  def edit_user_params
+  # def edit_user_params
       # params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :biography, :location)
-  end
+  # end
 
   # def update_resource(resource, params)
   #   resource.update_without_password(params)

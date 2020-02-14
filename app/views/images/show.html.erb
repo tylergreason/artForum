@@ -1,74 +1,70 @@
 <body class="image_show">
-<div class="show_image">
-    <%= image_tag @image.url%>
-</div>
+    <div class="show_image">
+        <%= image_tag @image.url%>
+    </div>
 
-<div class="image_info">
-    <h2><%= @image.title %></h2>
-    <p>by <%= @image.artist %></p>
-    <p>dated <%= @image.date_created %></p>
-    <p class="metro_link"><%= link_to "Met's page   ", @image.metro_link %></p>
-    <p>Posted <%= @image.image_date %></p>
-</div>
+    <div class="image_info">
+        <h2><%= @image.title %></h2>
+        <p>by <%= @image.artist %></p>
+        <p>dated <%= @image.date_created %></p>
+        <p class="metro_link"><%= link_to "Met's page", @image.metro_link %></p>
+        <p>Posted <%= @image.image_date %></p>
+    </div>
 
     <!--add favorite button-->
     <div class="image_show_favorite">
-    <% if user_signed_in? %>
-        <% if current_user.user_has_favorite(@image.id) %>
-            <p>You and <%= @image.number_favorites-1 %> other people have favorited this piece</p>
-            <%= button_to "Remove favorite", favorite_path(@image.favorites.find_by(image_id: @image.id, user_id: current_user.id)), :method => :delete %>
-        <% else %>
-            <p><%= @image.number_favorites %> users have favorited this image.</p>
-            <%= form_for @favorite do |f| %>
-                <%= f.hidden_field :image_id, :value => @image.id %>
-                <%= f.hidden_field :user_id, :value => current_user.id %>
-                <%= f.submit "Add favorite" %>
+        <% if user_signed_in? %>
+            <% if current_user.user_has_favorite(@image.id) %>
+                <p>You and <%= @image.number_favorites-1 %> other people have favorited this piece</p>
+                <!--find the favorite to remove by this image id and the current user id, then call its delete method-->
+                <%= button_to "Remove favorite", favorite_path(@image.favorites.find_by(image_id: @image.id, user_id: current_user.id)), :method => :delete %>
+            <% else %>
+                <p><%= @image.number_favorites %> users have favorited this image.</p>
+                <%= form_for @favorite do |f| %>
+                    <%= f.hidden_field :image_id, :value => @image.id %>
+                    <%= f.hidden_field :user_id, :value => current_user.id %>
+                    <%= f.submit "Add favorite" %>
+                <% end %>
             <% end %>
         <% end %>
-    <% end %>
     </div>
 
 
 <div class="comment_section">
-<% # add a new comment for any user (until authorization is added) %>
-<%=  form_for @comment do |f|%>
-
-    <% if user_signed_in? %>
-    <div class="write_comment">
-        <%= f.label " say something"  %>
-        <br>
-        <%= f.text_area :text, size: "70x5"%>
-        <%#= f.collection_select :user_id, User.all, :id, :full_name%>
-        <br>
-        <% #hidden field to provide the image_id to the comments controller  %>
-        <%= f.hidden_field :image_id, :value => @image.id %>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.submit "Add Comment" %>
-    </div>
-        
-    <% else %>
-        <p>You must be signed in to leave comments</p>
-    <% end %>
-<% end %>
-
-
-<h2>This piece has <%= @image.number_comments %> comments: </h2>
-<% # all comments for this piece %>
-<% @image.comments.each do  |comment| %>
-    <div class="comment">
-        <p>User <%= link_to comment.user.full_name, user_path(comment.user) %> said: </p>
-        <p class="comment_text"><%= comment.text %></p>
-        <p>at <%= comment.comment_date %></p>
-        <% #byebug %>
-        <% if  user_signed_in? && current_user.id == comment.user.id %>
-            <%= button_to "Delete Comment", comment_path(comment.id), :method => :delete %>
-            <%= button_to "Edit Comment", edit_comment_path(comment.id), :method => :get %>
+    <% # add a new comment for any user (until authorization is added) %>
+    <%=  form_for @comment do |f|%>
+        <% if user_signed_in? %>
+            <div class="write_comment">
+                <%= f.label " say something"  %>
+                <br>
+                <%= f.text_area :text%>
+                <%#= f.collection_select :user_id, User.all, :id, :full_name%>
+                <br>
+                <% #hidden field to provide the image_id to the comments controller  %>
+                <%= f.hidden_field :image_id, :value => @image.id %>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <%= f.submit "Add Comment" %>
+            </div>    
+        <% else %>
+            <p>You must be signed in to leave comments</p>
         <% end %>
-        <% #byebug %>
-    </div>
-<% end %>
+    <% end %>
+
+
+    <h2>This piece has <%= @image.number_comments %> comments: </h2>
+    <% # all comments for this piece %>
+    <% @image.comments.each do  |comment| %>
+        <div class="comment">
+            <p>User <%= link_to comment.user.full_name, user_path(comment.user) %> said: </p>
+            <p class="comment_text"><%= comment.text %></p>
+            <p>at <%= comment.comment_date %></p>
+            <% #byebug %>
+            <% if  user_signed_in? && current_user.id == comment.user.id %>
+                <%= button_to "Delete Comment", comment_path(comment.id), :method => :delete %>
+                <%= button_to "Edit Comment", edit_comment_path(comment.id), :method => :get %>
+            <% end %>
+            <% #byebug %>
+        </div>
+    <% end %>
 </div>
-
-
-
 </body>

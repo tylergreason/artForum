@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all 
-# Image.destroy_all
+Image.destroy_all
 Comment.destroy_all
 
 require 'faker'
@@ -39,7 +39,7 @@ url = 'https://collectionapi.metmuseum.org/public/collection/v1/search?q=hasImag
 response = RestClient.get(url)
 # turn that into JSON
 images = JSON.parse(response)
-10.times do
+30.times do
     Image.create_image
 end
 

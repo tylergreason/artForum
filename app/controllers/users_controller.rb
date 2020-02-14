@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     def update 
 
     end
-    # private 
-    # no longer using parameters here; see app/controllers/users/sessions_controller for new param
-    # params.require(:user).permit(:first_name, :last_name, :email, :location, :biography)
+
+    # user params are kept in application_controller > configure_permitted_params
 end
