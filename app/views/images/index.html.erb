@@ -3,23 +3,20 @@
     <h1>art forum</h1>
     <div>select an image below and join the discussion</div>
 </div>
-
+<!-- generate an image for today if one hasn't been already-->
 <% Image.todays_image %>
 
 <div class="image_index">
     <% @images.each do |image| %>
         <div class="image_in_index">
-            <p><%= image.image_date %>
-            </p>
+            <p><%= image.image_date %></p>
             <!-- the following 4 lines show emojis for the number of favorites or comments this image has. Removed these because they don't jive with the sites vibe-->
             <!--i class="em em-star2" aria-role="presentation" aria-label="GLOWING STAR"-->
              <%#= image.number_favorites %><!--/i-->
              <!--i class="em em-left_speech_bubble" aria-role="presentation" aria-label=""--><!--/i-->
              <%#= image.number_comments %>
-             
             <p><%= link_to (image_tag image.url), image_path(image) %></p>
-            <p><%=image.title%> by <%= image.artist %>
-            </p>
+            <p><%=image.title%> by <%= image.artist %></p>
         </div>
     <% end %>
 <div>

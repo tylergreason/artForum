@@ -1,4 +1,4 @@
-<body class="image_show">
+<body>
     <div class="show_image">
         <%= image_tag @image.url%>
     </div>
@@ -31,14 +31,12 @@
 
 
 <div class="comment_section">
-    <% # add a new comment for any user (until authorization is added) %>
     <%=  form_for @comment do |f|%>
         <% if user_signed_in? %>
             <div class="write_comment">
-                <%= f.label " say something"  %>
+                <%= f.label " say something"%>
                 <br>
                 <%= f.text_area :text%>
-                <%#= f.collection_select :user_id, User.all, :id, :full_name%>
                 <br>
                 <% #hidden field to provide the image_id to the comments controller  %>
                 <%= f.hidden_field :image_id, :value => @image.id %>

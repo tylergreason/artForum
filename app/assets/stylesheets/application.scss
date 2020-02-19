@@ -132,11 +132,6 @@ input:hover{
     }
 }
 
-
-.image_show {    
-
-}
-
 // center the displayed image 
 .show_image img{
     display: block;
@@ -211,6 +206,8 @@ input:hover{
     border-left: 2px solid black; 
     border-right: 2px solid black; 
     border-radius: 10px;
+    padding-left: 10px; 
+    padding-right: 10px;
 }
 
 .metro_link{

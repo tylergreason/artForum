@@ -10,7 +10,7 @@ The intent behind Art Forum was to make an application that could connect art lo
 
 Ultimately, Art Forum is a proof-of-concept of an application that can connect people over their love of art; specifically, people who may not have the means to see art in world famous museums. While planning the application, I thought of those who did not grow up near amazing museums or in artistic communities like I was lucky enough to, and wanted to create a tool to connect those people to new art in an easy to access manner. 
 
-## Funcionality 
+## Functionality
 
 Users can: 
 
@@ -98,3 +98,13 @@ Select any image from the homepage and scroll below the image to comment on it:
 
 <img src="readme_images/comment.png" width="800"/>
 
+## Challenges and What I Learned
+
+-  Scope 
+    -  The scope of Art Forum felt very intimidating in the beginning. I spent a weekend planning Art Forum but never felt fully prepared until I started actually _writing_ code, then things came together nicely and mostly went smoothly. I learned that while it is important (necessary!) to plan your project extensively, you may never feel prepared enough, and taking a dive into starting to make the project may be the best next step. 
+
+-  Planning 
+    - Though I had some experience with CSS before this project, Art Forum was the largest project I had tackled using CSS. I am proud of the way Art Forum is presented but the CSS in its current state feels flimsy and poorly built. I learned that planning what I wanted to make before making it is a practice not reserved for databases and code structure, but the way a site is presented as well. Less repeated code, fewer selectors, and taking advantage of SCSS would have been beneficial. 
+
+-  Test, test, test!  
+    - No wonder knowing how to write tests is such a highly sought after skill. A few times corner-case situations popped up that broke Art Forum. I either fixed the issue to make it work properly or removed the user's ability to perform the action that caused the issue (not ideal, but I was on a time crunch!). I learned to test my application for as many scenarios as I could think of, and the real benefit of having testing suites to do that for me. 
